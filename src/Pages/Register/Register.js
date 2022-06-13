@@ -1,10 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Register = () => {
 
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-    const handleRegister = (event) => {
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+
+    const handleRegister = async (event) => {
         event.preventDefault()
 
         const name = event.target.name.value;
@@ -12,7 +24,12 @@ const Register = () => {
         const email = event.target.email.value;
         console.log(name, email, password)
 
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: email })
+
     }
+
+
 
 
     return (
