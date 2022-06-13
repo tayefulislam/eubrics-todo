@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -22,7 +23,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div class="navbar-center">
-                <a class="btn btn-ghost normal-case text-xl">Eubrics ToDo</a>
+                <Link to='/' class="btn btn-ghost normal-case text-xl">Eubrics ToDo</Link>
             </div>
             <div class="navbar-end">
 

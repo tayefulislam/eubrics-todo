@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 const Login = () => {
 
@@ -11,6 +11,11 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
 
@@ -23,6 +28,12 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
 
     }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
     return (
         <div className='flex justify-center items-center mb-10'>
             <div className="card w-96 bg-gray-200 shadow-xl">

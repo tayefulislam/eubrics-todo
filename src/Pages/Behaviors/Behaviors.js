@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Behaviors = () => {
 
-    const url = `http://localhost:5000/behaviors`
+    const url = `http://localhost:5000/behaviors`;
     const { isLoading, data } = useQuery('allbehaviors', () => fetch(url).then(res => res.json()))
 
     console.log(data)
