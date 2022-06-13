@@ -1,0 +1,22 @@
+[
+    {
+        "behaviorId": "making-decisions",
+        "name": "Making Decisions"
+    },
+    {
+        "behaviorId": "thinking-laterally",
+        "name": "Thinking Laterally"
+    },
+    {
+        "behaviorId": "influencing-negotiating",
+        "name": "Influencing & Negotiating"
+    },
+    {
+        "behaviorId": "managing-conflict",
+        "name": "Managing Conflict"
+    },
+    {
+        "behaviorId": "driving-results",
+        "name": "Driving Results"
+    }
+]
