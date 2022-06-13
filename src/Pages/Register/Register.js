@@ -2,6 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+
+    const handleRegister = (event) => {
+        event.preventDefault()
+
+        const name = event.target.name.value;
+        const password = event.target.password.value;
+        const email = event.target.email.value;
+        console.log(name, email, password)
+
+    }
+
+
     return (
         <div className='flex justify-center items-center mb-10'>
             <div className="card w-96 bg-gray-200 shadow-xl">
@@ -9,7 +22,7 @@ const Register = () => {
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>
 
 
-                    <form >
+                    <form onSubmit={handleRegister} >
 
 
                         <div className="form-control w-full max-w-xs">
